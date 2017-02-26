@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src="https://hq.sinajs.cn/list=s_sz150023"></script>
+    <style>
+*{
+color:#555;
+}
+.name{
+    color:gray;
+    margin:0 auto;
+    width: 90%;
+    font-size:2em;
+}
+.chigu{
+    font-size:1.5em;
+}
+.red{
+color:red;
+}
+    </style>
+    <script src="http://hq.sinajs.cn/list=s_sz150023"></script>
+    <script src="http://hq.sinajs.cn/list=sz000002"></script>
 </head>
 <body>
+    <div class="name">梅氏集团、任氏集团、郭氏集团、赵家人、盛家人、冷家人、石家人、涂家人、于家人、李家人、张家人........</div>
+    <p class="chigu">二级市场持股明细：<span id="jine"></span></p>
+    <p class="chigu">原始股持股明细：</p>
     <div id="box"></div>
+	<div id="box2"></div>
   <script>
   var numbs=hq_str_s_sz150023.split(",");
+  var numbs2=hq_str_sz000002.split(",");
   console.log(numbs);
+console.log(numbs2);
   var box=document.getElementById("box");
+  var box2=document.getElementById("box2");
+var jine=document.getElementById("jine");
 setInterval(function(){
-  box.innerHTML="股票名称："+numbs[0]+"\n\n"+"当前价格："+numbs[1]+"\n\n"+"涨跌幅："+numbs[2]+"\n\n"+"涨跌率："+numbs[3]+"%"+"\n\n"+"成交量："+numbs[4]+"手"+"\n\n"+"成交额："+numbs[5]+"万元";
+  box.innerHTML="股票名称：<span class='red'>"+numbs[0]+"</span>\n\n"+"当前价格：<span class='red'>"+numbs[1]+"</span>\n\n"+"涨跌幅："+numbs[2]+"\n\n"+"涨跌率："+numbs[3]+"%"+"\n\n"+"成交量："+numbs[4]+"\n\n"+"成交额："+numbs[5];
+  box2.innerHTML="股票名称：<span class='red'>"+numbs2[0]+"</span>\n\n"+"今日开盘价："+numbs2[1]+"昨日收盘价："+numbs2[2]+"\n\n当前价格：<span class='red'>"+numbs2[3]+"</span>\n\n今日最高价："+numbs2[4]+"今日最低价："+numbs2[5]+"竞买价："+numbs2[6]+"竞卖价："+numbs2[6]+"成交的股票数："+numbs2[7]+"成交金额："+numbs2[8];
+jine.innerHTML="持股数量：深成指B：<span class='red'>"+numbs[1]*7700+"</span>元，万科A：<span class='red'>"+45555551*numbs2[3]+"</span>万元";
 },20)
   </script>
 </body>
